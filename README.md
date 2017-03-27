@@ -1,11 +1,11 @@
-# Coding In Swift - April Issue 2017
+# Pragmatic Swift - April Issue 2017
 
 Reminder: this repo will be public and all the issues and discussions are going to be readable by everyone.
 
 ### Writing
 
 Checkout the current repo and use the correct pull request about your article.
-Once the article is ready, move the card on the dedicated Trello board and let the editor/reviewer to read, fix typos and eventually give some suggestions in how to improve.
+Once the article is ready, move the card on the dedicated [Trello board](https://trello.com/b/3HGZJSkh/pragmatic-swift) and let the editor/reviewer to read, fix typos and eventually give some suggestions in how to improve.
 
 ### Review
 

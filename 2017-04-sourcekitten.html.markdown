@@ -77,7 +77,7 @@ conpescuit ingenio membra; sub gaudia petisset demptum!
 # ORIGINAL
 ---
 
-# Sourcekitten
+# SourceKitten
 
 [SourceKitten](https://github.com/jpsim/SourceKitten) is a command line utility wrapping [SourceKit](https://github.com/apple/swift/tree/master/tools/SourceKit).
 SourceKit supports editor functionality to work effectively with Swift such as code completion, indexing or syntax colouring. Xcode's editor relies on SourceKit for this functionality, for example.
@@ -86,7 +86,9 @@ SourceKitten enables you to use these abilities yourself by providing high-level
 
 Let's walk through these step by step and see how you can work with the results of these commands, using [Alamofire](https://github.com/Alamofire/Alamofire) as a sample project.
 
-## Code Completion
+## Commands
+
+### Code Completion
 
 In order to look up code completion suggestions you need to provide a source file path as well as an offset within this file for which completions should be looked up for.
 
@@ -102,6 +104,7 @@ $ sourcekitten complete --file Source/MultipartFormData.swift --offset 3068
   "kind" : "source.lang.swift.decl.enumelement",
   "name" : "encapsulated",
   "sourcetext" : "encapsulated",
+  "numBytesToErase" : 0,
   "typeName" : "MultipartFormData.BoundaryGenerator.BoundaryType",
   "associatedUSRs" : "s:FOVC17MultipartFormData17MultipartFormData17BoundaryGenerator12BoundaryType12encapsulatedFMS2_S2_",
   "moduleName" : "MultipartFormData",
@@ -111,6 +114,7 @@ $ sourcekitten complete --file Source/MultipartFormData.swift --offset 3068
   "kind" : "source.lang.swift.decl.enumelement",
   "name" : "final",
   "sourcetext" : "final",
+  "numBytesToErase" : 0,
   "typeName" : "MultipartFormData.BoundaryGenerator.BoundaryType",
   "associatedUSRs" : "s:FOVC17MultipartFormData17MultipartFormData17BoundaryGenerator12BoundaryType5finalFMS2_S2_",
   "moduleName" : "MultipartFormData",
@@ -120,6 +124,7 @@ $ sourcekitten complete --file Source/MultipartFormData.swift --offset 3068
   "kind" : "source.lang.swift.decl.enumelement",
   "name" : "initial",
   "sourcetext" : "initial",
+  "numBytesToErase" : 0,
   "typeName" : "MultipartFormData.BoundaryGenerator.BoundaryType",
   "associatedUSRs" : "s:FOVC17MultipartFormData17MultipartFormData17BoundaryGenerator12BoundaryType7initialFMS2_S2_",
   "moduleName" : "MultipartFormData",
@@ -130,7 +135,7 @@ $ sourcekitten complete --file Source/MultipartFormData.swift --offset 3068
 Elsewhere you may receive methods and operators applicable to strings:
 
 ```swift
-$ sourcekitten complete --file Source/MultipartFormData.swift --offset 18158
+$ sourcekitten complete --file Source/MultipartFormData.swift --offset 18149
 ```
 
 ```json
@@ -139,6 +144,7 @@ $ sourcekitten complete --file Source/MultipartFormData.swift --offset 18158
   "kind" : "source.lang.swift.decl.function.operator.infix",
   "name" : "+=",
   "sourcetext" : "+= <#T##String#>",
+  "numBytesToErase" : 0,
   "typeName" : "Void",
   "moduleName" : "Swift",
   "context" : "source.codecompletion.context.othermodule"
@@ -149,7 +155,7 @@ $ sourcekitten complete --file Source/MultipartFormData.swift --offset 18158
 
 For more details on what kind of contexts code completion operates in you can review [the implementation](https://github.com/apple/swift/blob/master/lib/IDE/CodeCompletion.cpp).
 
-## Syntax
+### Syntax
 
 This command simply returns an array of tokens contained in the given file, indicating their type and range (offset and length).
 
@@ -171,7 +177,7 @@ $ sourcekitten syntax --file Source/Result.swift
 
 For a full list of types this might return, see the [SourceKit source code](https://github.com/apple/swift/blob/master/tools/SourceKit/lib/SwiftLang/SwiftLangSupport.cpp#L402-L419).
 
-## Structure & Documentation
+### Structure & Documentation
 
 Describing both the structure and documentation for source files is closely related.
 The following invocation will return the structure of the given source file.
@@ -249,4 +255,27 @@ If you normally need to pass additional arguments to `xcodebuild` you can also u
 
 ```shell
 $ sourcekitten doc -- -scheme App
+```
+
+## Feral SourceKittens: Examples of usage in the wild
+
+### In other projects
+
+- [Jazzy](https://github.com/realm/jazzy)
+
+
+### In your own projects
+
+```ruby
+#!/usr/bin/env ruby
+
+require 'json'
+
+contents = File.read('Source/Result.swift')
+syntax = JSON.parse`sourcekitten syntax --file Source/Result.swift`
+
+syntax.each do |token|
+  puts "#{token['type']} #{contents.slice(token['offset'], token['length'])}"
+end
+
 ```

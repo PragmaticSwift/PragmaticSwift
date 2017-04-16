@@ -225,3 +225,7 @@ syntax.each do |token|
 end
 
 ```
+
+## Natural Predators
+
+While SourceKitten is a great way to gain better insights into your Swift projects today and make these easier to work with, the Swift team and contributors are also working on providing such support as part of the tooling shipped with the language, under the umbrella of the [Swift Syntax Structured Editing Library](https://lists.swift.org/pipermail/swift-dev/Week-of-Mon-20170206/004066.html) which lives at [`lib/Syntax` in the Swift repository](https://github.com/apple/swift/tree/master/lib/Syntax).

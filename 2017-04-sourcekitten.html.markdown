@@ -194,10 +194,23 @@ $ sourcekitten doc -- -scheme App
 
 ### In other projects
 
-- [Jazzy](https://github.com/realm/jazzy)
-
+A prominent user of SourceKitten is Realm's documentation generator [Jazzy](https://github.com/realm/jazzy) which provides a great way to generate documentation for your codebase.
 
 ### In your own projects
+
+A quick way to start using SourceKitten yourself is by combining an invocation with [`jq`](https://stedolan.github.io/jq/) which offers `sed`-like command line processing for JSON.
+
+For example you can compare the relative amount of comments in a source file:
+
+```source
+$ sourcekitten syntax --file Source/Result.swift | jq 'map(select(.type != "source.lang.swift.syntaxtype.doccomment")) | length'
+239
+
+$sourcekitten syntax --file Source/Result.swift | jq 'map(select(.type == "source.lang.swift.syntaxtype.doccomment")) | length'
+78
+```
+
+Once you have prototyped an interesting query you could of course use this as part of a more complex workflow, such as the following Ruby snippet below.
 
 ```ruby
 #!/usr/bin/env ruby

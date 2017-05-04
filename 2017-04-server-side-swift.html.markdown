@@ -34,7 +34,7 @@ drop.get("/test", handler: { request in
 ```
 *Configuring the Droplet.*
 
-We start by creating our droplet (1), we add a database provider (2) and a `Model` entity (3) to be used with it, then add our middleware. the order of the middleware usually doesn't matter, and is done by `appending` (5), them. Sometimes, though, we might have very specific needs, and we want one of the middleware to run first. In this case, we can insert it to be first on the stack (4), thus being the first one to be called, before any other internal ones.
+We start by creating our droplet (1), we add a database provider (2) and a `Model` entity (3) to be used with it, then add our middleware. The order of the middleware usually doesn't matter and is done by `appending` (5) them. Sometimes, though, we might have very specific needs and we want one of the middleware to run first. In this case, we can insert it to be first on the stack (4), thus being the first one to be called, before any other internal ones.
 
 
 Now, onto the middleware: how they operate, and more on why the are added like that. Vapor offers a `Middleware` protocol, which requires just one method:
@@ -44,7 +44,7 @@ func respond(to request: Request, chainingTo next: Responder) throws -> Response
 ```
 *The Middleware's only method.*
 
-Through this method, a middleware takes the request, modifies it (or not) accordingly, then either passes it to the next responder (which can be another middleware, or an endpoint handler), which returns a response, modifies it (or not) accordingly, either directly creates and returns a response. We'll see each of these cases in the examples to follow.
+Through this method, a middleware takes the request, modifies it (or not) accordingly, then either passes it to the next responder (which can be another middleware or an endpoint handler), which returns a response, modifies it (or not) accordingly, either directly creates and returns a response. We'll see each of these cases in the examples to follow.
 
 First on the stack, the `RedirectMiddleware`:
 
@@ -154,7 +154,7 @@ extension Droplet: Responder {
 ```
 *The Droplet's respond method implementation.*
 
-Here we can see that a responder is created (1) by chaining all middlewares (not calling them, yet), and it's used to create a response out of the request (2), that will be returned (4), if everything goes OK. If that fails, a new response is created and returned (3), which will contain an error message, and a status code. How are the middleware chained (1), and called? With an extension on `Collection` and a `Responder` subclass, whose sole purpose is to hold and call a closure:
+Here we can see that a responder is created (1) by chaining all middlewares (not calling them, yet), and it's used to create a response out of the request (2), that will be returned (4) if everything goes OK. If that fails, a new response is created and returned (3), which will contain an error message and a status code. How are the middleware chained (1), and called? With an extension of `Collection` and a `Responder` subclass, whose sole purpose is to hold and call a closure:
 
 ```swift
 extension Request {
@@ -201,7 +201,7 @@ return the Redirect Handler
 ```
 *Chaining the middleware's closures.*
 
-`Droplet`'s `respond` method is the place where the returned `Handler`'s `closure` is called (2), which will call the next, and so on. The last one that will be called is the `handler` closure passed in our `get` method, and is the first one that chains the responses / errors back:
+`Droplet`'s `respond` method is the place where the returned `Handler`'s `closure` is called (2), which will call the next, and so on. The last one that will be called is the `handler` closure passed in our `get` method, and is the first one that chains the responses/errors back:
 
 ```swift
 drop.get("/test", handler: { request in
@@ -248,9 +248,9 @@ RequestMiddleware ("1") ->
 ```
 *Non-secure request chain.*
 
-As you can see, the main advantages of middleware are that we can modularize code, by breaking it down into smaller, specialized classes. Due to the fact that each serves a single, usually small, purpose, they can be reasoned with much easier, are more expressive, and easier to test / change / remove. None of them know about each other, they all act on the request / response independently, without caring what happens down / up the chain.
+As you can see, the main advantages of middleware are that we can modularize code, by breaking it down into smaller, specialized classes. Due to the fact that each serves a single, usually small, purpose, they can be reasoned with much easier, are more expressive, and easier to test/change/remove. None of them know about each other, they all act on the request/response independently, without caring what happens down/up the chain.
 
-The throwing chain follows the exact same path, and, at its core, is very straightforward: if anything throws an error and it is not handled, it will be passed back the request / response chain until a handler is found, or, it will reach the internal catch block (3 in the `extension Droplet: Responder` snippet), where a `Response` is created with a generic error message.
+The throwing chain follows the exact same path, and, at its core, is very straightforward: if anything throws an error and it is not handled, it will be passed back the request/response chain until a handler is found, or, it will reach the internal catch block (3 in the `extension Droplet: Responder` snippet), where a `Response` is created with a generic error message.
 
 Let us see how one could handle errors. First, the most straightforward, in-place handling:
 
@@ -292,7 +292,7 @@ In the case of the `handle` endpoint, if everything goes well in `findAnswer`, w
 
 In the case of the `pass-along` endpoint, if everything goes well, the same scenario applies (5); but if an error is thrown, since we aren't handling it here, it will be passed on the callback chain (4), as previously mentioned.
 
-We can already see that if we add other endpoints that makes use of the `findAnswer` method, we'll have to treat the error again, and again.
+We can already see that if we add other endpoints that make use of the `findAnswer` method, we'll have to treat the error again and again.
 
 Another approach, recommended by Vapor's documentation, and a great idea per se, is to create an error handling middleware, that handles all errors. Let's start by creating an `AppError` entity, and change our `findAnswer` method:
 
@@ -331,7 +331,7 @@ func findAnswer(for request: Request) throws -> String {
 ```
 *Throwing custom errors.*
 
-We can still handle errors in-place (1, 2), but since we will be adding a middleware to treat errors, passing them along (3, 4) would be the go-to choice. Our `findAnswer` method now throws an `AppError` (5) with an associated value for the expected parameter, and is also throwing an error for the time out (6).
+We can still handle errors in-place (1, 2), but since we will be adding a middleware to treat errors, passing them along (3, 4) would be the go-to choice. Our `findAnswer` method now throws an `AppError` (5) with an associated value for the expected parameter and is also throwing an error for the timeout (6).
 
 As we already know, we only need to implement one method, so let's see how we can do that:
 
@@ -443,8 +443,8 @@ Then let's add the appropriate keys in our `Config/production/droplet.json` and 
 
 Now, the `ErrorHandlingMiddleware` will be added to the production server's middleware (1) on app launch, but not on staging (2). A middleware can be added to both server and client, and to any `Config/server-type/droplet.json` file; also the ordering of the array will be respected.
 <br>
-As we're reaching the end of the article, we can see that Swift is a pretty viable solution for setting up a server. Protocols let us define a `Middleware` entity to be easily used to modify our requests / responses, and extensions gave us versatility of adding their handlers to a chained stack. We also made use of extensions to open up the possibility of `throwing` a string, for basic error handling, but also for simple things, like separating the `Request.Handler` hierarchy out of the main struct, for a better project structure.
+As we're reaching the end of the article, we can see that Swift is a pretty viable solution for setting up a server. Protocols let us define a `Middleware` entity to be easily used to modify our requests/responses, and extensions gave us the versatility of adding their handlers to a chained stack. We also made use of extensions to open up the possibility of `throwing` a string, for basic error handling, but also for simple things, like separating the `Request.Handler` hierarchy out of the main struct, for a better project structure.
 
-By using Swift both on the server and on the client, one could also share models, functionality, and helpers / utilities, avoid duplication and by looking at the server and client as a whole, everything would be easier to reason with.
+By using Swift both on the server and on the client, one could also share models, functionality and helpers/utilities, avoid duplication and by looking at the server and client as a whole, everything would be easier to reason with.
 
 As for Vapor itself, as the framework of choice? It's not the best, nor the worst, according to [this](https://medium.com/@rymcol/benchmarks-for-the-top-server-side-swift-frameworks-vs-node-js-24460cfe0beb) article (9 months old, things might have changed), but it offers a really similar mindset to Express.js and Sinatra (those were my previous two choices for my own [blog](https://rolandleth.com)), and it also fit my needs pretty well (a blog with not too many requests, that didn't require any APIs, either).

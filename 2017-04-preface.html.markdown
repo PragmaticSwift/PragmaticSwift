@@ -20,7 +20,7 @@ Swift is a young programming language and for this reason it's difficult to find
 
 The fragmentation of sources makes stay informed about the current status of Swift very hard, the pace of the language itself is high and every year there are new features and small details changed. Details that can make a big difference if learned, but that sometimes are hidden or not so easy to master in a first usage. 
 
-Swift is a programming language is rapid evolution, the nature of the language is gaining traction also in other usages outside the Apple ecosystem.
+Swift is a programming language is in rapid evolution, the nature of the language is gaining traction also in other usages outside the Apple ecosystem.
 
 ## The concept
 
@@ -40,11 +40,11 @@ Once an issue is ready, the editors can decide to fade away and authors are kind
 
 ### Effort
 
-As previously said, an author is asked to be editor in the following release, for this reason the required effort should not be underestimated. The number of hours required vary from 4 up to 10 hours for a single article, depending on the level of experience, knowledge of the topic and also interest. More an author is interested, more the article is detailed, but this can also make the whole process longer than expected. If you want to help, please take this under consideration.
+As previously said, an author is asked to be editor in the following release, for this reason the required effort should not be underestimated. The number of hours required vary from 4 up to 10 hours for a single article, depending on the level of experience, knowledge of the topic and also interest. The more an author is interested, the more an article is detailed, but this can also make the whole process longer than expected. If you want to help, please take this under consideration.
 
 ### Topics
 
-For the first issues, the general topics are already decided and won't have much room for being decided, but starting from Fall 2017, the goal is to open the decision about the topic and also the selection of authors, trying to give to everyone the chance to participate, share and learn.
+For the first issues, the general topics are already decided and won't have much room for being discussed, but starting from Fall 2017, the goal is to open the decision about the topic and also the selection of authors, trying to give to everyone the chance to participate, share and learn.
 
 ### Type of Articles
 

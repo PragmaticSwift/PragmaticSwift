@@ -4,16 +4,16 @@ date: 2017-03-27 20:39 UTC
 issue: may-2017
 tags:
 author: Elland
-author_twitter: @elland
+author_twitter: elland
 editor: Vixentael
-editor_twitter: @vixentael
+editor_twitter: vixentael
 order: 2
 
 ---
 
 # App Security
 
-# TL;DR
+## TL;DR
 
 - Security is not a set of methods, it's a system. It's better to think about threats and trust as early as you can.
 - Avoid plaintext at all cost. Encrypt your communication. Encrypt your local data as required.
@@ -55,7 +55,7 @@ Sometimes, making something that is already built secure might mean having to de
 
 Cryptography is not easy. It's not simple to conceive it, it's not easy to implement it, and it's not easy to test it. There are a plethora of examples of really good cryptographic tools being broken all the time. Because computers become more powerful over time, because of bugs that weren't caught before. Tools will fail you, all you can do is try to make them have the least possible impact on your data.
 
-![](2017-04-app-security-in-swift/schneier.png)
+![](2017-05-app-security-in-swift/schneier.png)
 
 For instance, if you're using [ephemeral keys](https://en.wikipedia.org/wiki/Ephemeral_key) for your communications, even if a tool is cracked or a key is leaked, the damage will be minimal, compared to using the same key for everything. Think of using ephemeral keys as not re-using your passwords.
 
@@ -87,7 +87,7 @@ You’ll find more information on pinning certificates and public keys [in this 
 
 Be it passwords, API keys, your local database, your cache, your users' personal details, one thing remains true: plaintext is your enemy. It doesn't matter how much care and effort you put into making your application secure, your server secure, your transport secure, if someone can just plug a phone, open iTunes and retrieve your certificates and keys, or even worse: lift them off from Github. Encryption is key.
 
-![Not a pretty picture.](2017-04-app-security-in-swift/apikey.png)
+![Not a pretty picture.](2017-05-app-security-in-swift/apikey.png)
 
 
 ## How to easily and safely encrypt/decrypt user data

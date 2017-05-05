@@ -5,8 +5,8 @@ issue: may-2017
 tags:
 author: Junior B.
 author_twitter: bontoJR
-editor: TBD
-editor_twitter: TBD
+editor: Patrick Balestra
+editor_twitter: balestrapatrick
 order: 1
 ---
 
@@ -16,7 +16,7 @@ Welcome to Pragmatic Swift, this is the first and pilot issue. The goal of this 
 
 ## Why
 
-Swift is a young programming language and for this reason it's difficult to find a good and reliable source of publications and articles. The current state of the art is composed by single blogs maintained by great developers devoted to share as much as possible and great newsletters to help everybody else in staying informed about where to find these articles.
+Swift is a young programming language and for this reason, it's difficult to find a good and reliable source of publications and articles. The current state of the art is composed by single blogs maintained by great developers devoted to sharing as much as possible and great newsletters to help everybody else in staying informed about where to find these articles.
 
 The fragmentation of sources makes stay informed about the current status of Swift very hard, the pace of the language itself is high and every year there are new features and small details changed. Details that can make a big difference if learned, but that sometimes are hidden or not so easy to master in a first usage. 
 
@@ -34,13 +34,13 @@ Every issue aims to have between 4 and 5 articles, for the first part it will be
 
 ### Continuation
 
-Once an issue is ready, the editors can decide to fade away and authors are kindly asked to become editors on the following release helping the new ones in writing the article for the following issue. This creates a continuation in the project and gives the opportunity to share what the editor, previously author, learned during the process. If an editor wants to help on the following release, he's more than welcome, the only restriction is that an author should avoid to write an article in two consecutive issues.
+Once an issue is ready, the editors can decide to fade away and authors are kindly asked to become editors on the following release helping the new ones in writing the article for the following issue. This creates a continuation of the project and gives the opportunity to share what the editor, previously author, learned during the process. If an editor wants to help on the following release, he's more than welcome, the only restriction is that an author should avoid writing an article in two consecutive issues.
 
 ![Preface](2017-05-preface/flow.png)
 
 ### Effort
 
-As previously said, an author is asked to be editor in the following release, for this reason the required effort should not be underestimated. The number of hours required vary from 4 up to 10 hours for a single article, depending on the level of experience, knowledge of the topic and also interest. The more an author is interested, the more an article is detailed, but this can also make the whole process longer than expected. If you want to help, please take this under consideration.
+As previously said, an author is asked to be editor in the following release, for this reason, the required effort should not be underestimated. The number of hours required varies from 4 up to 10 hours for a single article, depending on the level of experience, knowledge of the topic and also interest. The more an author is interested, the more an article is detailed, but this can also make the whole process longer than expected. If you want to help, please take this into consideration.
 
 ### Topics
 
@@ -48,12 +48,12 @@ For the first issues, the general topics are already decided and won't have much
 
 ### Type of Articles
 
-Pragmatic Swift aims to give detailed posts and insights on specific topics, trying to be technical and informative. There's no reason to create tutorials or how-to articles, these kind of resources have a couple of great sources like [Hacking With Swift](https://www.hackingwithswift.com) and [Ray Wenderlich](https://www.raywenderlich.com), their value is already known and widely recognized.
+Pragmatic Swift aims to give detailed posts and insights on specific topics, trying to be technical and informative. There's no reason to create tutorials or how-to articles, this kind of resources have a couple of great sources like [Hacking With Swift](https://www.hackingwithswift.com) and [Ray Wenderlich](https://www.raywenderlich.com), their value is already known and widely recognized.
 
 ## Conclusion
 
 Thanks for reading the preface, there's no need to annoy you more, I conclude with an amazing quote:
 
-> Everybody [...] should learn to program a computer, because it teaches you how to think. - Steve Jobs
+> Everybody [...] should learn to program a computer because it teaches you how to think. - Steve Jobs
 
 hoping that you will enjoy this project.

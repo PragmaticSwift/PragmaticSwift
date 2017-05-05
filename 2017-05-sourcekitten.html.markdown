@@ -4,7 +4,7 @@ date: 2017-03-27 20:39 UTC
 issue: may-2017
 tags:
 author: Seán Labastille
-author_twitter: @flufffel
+author_twitter: flufffel
 editor: TBD
 editor_twitter: TBD
 order: 5

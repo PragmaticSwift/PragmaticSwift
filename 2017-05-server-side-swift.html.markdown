@@ -4,9 +4,9 @@ date: 2017-03-27 20:38 UTC
 issue: may-2017
 tags:
 author: Roland Leth
-author_twitter: @rolandleth
+author_twitter: rolandleth
 editor: Adrian Kosmaczewski
-editor_twitter: @akosma
+editor_twitter: akosma
 order: 3
 ---
 

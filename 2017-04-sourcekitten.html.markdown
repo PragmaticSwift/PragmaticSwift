@@ -27,6 +27,17 @@ In order to look up code completion suggestions you need to provide a source fil
 
 For example the following invocation points at the start of a switch case statement over an enumeration. Here the completions are restricted to the relevant enumeration cases.
 
+```swift
+                boundaryText = "--\(boundary)\(EncodingCharacters.crlf)"
+            case .encapsulated:
+                boundaryText = "\(EncodingCharacters.crlf)--\(boundary)\(EncodingCharacters.crlf)"
+            case .final:
+                  ^
+                boundaryText = "\(EncodingCharacters.crlf)--\(boundary)--\(EncodingCharacters.crlf)"
+            }
+            return boundaryText.data(using: String.Encoding.utf8, allowLossyConversion: false)!
+```
+
 ```shell
 $ sourcekitten complete --file Source/MultipartFormData.swift --offset 3068
 ```
@@ -68,6 +79,17 @@ $ sourcekitten complete --file Source/MultipartFormData.swift --offset 3068
 Elsewhere you may receive methods and operators applicable to strings:
 
 ```swift
+        var headerText = ""
+
+        for (key, value) in bodyPart.headers {
+            headerText += "\(key): \(value)\(EncodingCharacters.crlf)"
+                      ^
+        }
+        headerText += EncodingCharacters.crlf
+        return headerText.data(using: String.Encoding.utf8, allowLossyConversion: false)!
+```
+
+```shell
 $ sourcekitten complete --file Source/MultipartFormData.swift --offset 18149
 ```
 

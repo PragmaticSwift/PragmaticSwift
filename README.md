@@ -1,4 +1,4 @@
-# Pragmatic Swift - April Issue 2017
+# Pragmatic Swift - Issues 2017
 
 Reminder: this repo will be public and all the issues and discussions are going to be readable by everyone.
 
@@ -11,6 +11,3 @@ Once the article is ready, move the card on the dedicated [Trello board](https:/
 
 While reviews, please comment on the PR directly on the line, so it's clear what the comment is about. If the comment is big or general, please use the PR as issue.
 
-### Release
-
-The release is going to be announced during App Builders 2017, on Tuesday 25th April to maximize the impact. FYI: All following releases are going to be on the last Friday of the Month.

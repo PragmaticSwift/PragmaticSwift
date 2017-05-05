@@ -1,7 +1,7 @@
 ---
 title: Server Side Swift
 date: 2017-03-27 20:38 UTC
-issue: april-2017
+issue: may-2017
 tags:
 author: Roland Leth
 author_twitter: @rolandleth

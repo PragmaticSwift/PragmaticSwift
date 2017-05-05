@@ -1,9 +1,9 @@
 ---
 title: App Security in Swift
 date: 2017-03-27 20:39 UTC
-issue: april-2017
+issue: may-2017
 tags:
-author: TBD
+author: Elland
 author_twitter: @elland
 editor: Vixentael
 editor_twitter: @vixentael

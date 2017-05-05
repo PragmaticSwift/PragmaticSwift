@@ -15,10 +15,10 @@ order: 2
 
 # TL;DR
 
-- Security is a system, not a set of methods. It's better to think about threats and trust as early as you can.
+- Security is not a set of methods, it's a system. It's better to think about threats and trust as early as you can.
 - Avoid plaintext at all cost. Encrypt your communication. Encrypt your local data as required.
-- If you don't store the password, it can't be leaked ;)
-- But if you need to store password, do it right!
+- If you don't store the password, it can't be leaked. ;)
+- But if you need to store passwords, do it right!
 - It's not paranoia if it's true.
 
 ----
@@ -29,15 +29,15 @@ Keeping your user data safe and private is not the simplest of tasks. There is n
 
 > Two people are walking in the woods, they spot a bear. Security is not outrunning the bear. It's outrunning the other person.
 
-With that bleak image in mind, let's see what we can do, to make it either as hard as possible or as hard as feasible for data to be breached.
+With that bleak image in mind, let's see what we can do, to make it either as hard as possible, or as hard as feasible, for data to be breached.
 
-Sure, security is hard, and there's no bulletproof solution. But there's a lot of small things we can sill do that significantly improve our chances of keeping user data safe.
+Sure, security is hard, and there's no bulletproof solution. But there's a lot of small things we can still do, that significantly improve our chances of keeping the data safe.
 
 ## Take a step back
 
-The first thing we should think about is if we need to store that data. We’re often storing data we don't need, out of habit or because of external pressures. Is it crucial that we store the user's address? Their phone numbers? Their full names? What kind of genitalia they have? Sometimes that answer is yes, but most of the time, it's no. Remember: the more data you have, the more appetising your dataset becomes, and the more you have to work you have to secure it.
+The first thing we should think about is if we need to store that data at all. We’re often storing data we don't need, out of habit or because of external pressures. Is it crucial that we store the user's address? Their phone numbers? Their full names? What kind of genitalia they have? Sometimes that answer is yes, but most of the time, it's no. Remember: the more data you have, the more appetising your dataset becomes, and the more you have to work to secure it.
 
-Once we figured out what data is needed and what data can be discarded, the next step is figuring out risk and threat models. What are the most vulnerable points? What is more likely to happen? What can't be prevented?
+Once we figured out what data is really needed and what data can be discarded, the next step is figuring out risk and threat models. What are the most vulnerable points? What is more likely to happen? What can't be prevented?
 
 There's no point in making a connection super secure if the private key is kept locally in plaintext, in a file called `myprivatekey`.
 
@@ -45,11 +45,11 @@ There's no point in making a connection super secure if the private key is kept 
 
 ### Start Early
 
-There's a very simple reason why the iOS and the iPhone are so much more secure than Android. One of them was conceived with privacy and security in mind; the other wasn't. 
+There's a very simple reason why iOS and the iPhone are so much more secure than Android. One of them was conceived with privacy and security in mind; the other wasn't. 
 
-> It's much easier to build something with security in mind from the start than to build something and then try to tack some security on it.
+> It's much easier to build something with security in mind from the start than to build something and then try to tack some security onto it.
 
-Sometimes making something that is already built secure might mean having to deconstruct the whole thing and put it back together again. Sometimes not even that can help.
+Sometimes, making something that is already built secure might mean having to deconstruct the whole thing and put it back together again. Sometimes not even that can help.
 
 ### Never roll your own crypto
 
@@ -73,9 +73,7 @@ let mySecretPassword: String = keychainWrapper.string(for: passKey)
 
 It's a small step that already improves things by quite a lot.
 
-
-> Do you want to know more about key management? What goals and actions should key management system have, how to generate & store keys, should we obfuscate or encrypt keys, take a look at [@vixentael](https://twitter.com/vixentael)'s [last talk](https://speakerdeck.com/vixentael/keys-from-the-castle-ancient-art-of-managing-keys-and-trust).
-
+> Do you want to know more about key management? What goals and features should a key management system have, how to generate & store keys, should we obfuscate or encrypt keys? Take a look at [@vixentael](https://twitter.com/vixentael)'s [last talk here](https://speakerdeck.com/vixentael/keys-from-the-castle-ancient-art-of-managing-keys-and-trust).
 
 Consider **pinning your SSL certs** and its public keys. Many iOS libraries will provide you with ways of doing SSL certificate pinning, but you probably want to pin the certificate's public key instead, since pinning the SSL certificate itself means that if they are revoked or expired, your app might not work until you update the binary with new certificates. As with most things security, you’ll have to weight the pros and cons of each solution. Sometimes it makes sense to give away a bit of extra security in the name of user convenience; sometimes it doesn’t. 
 
@@ -85,14 +83,16 @@ You’ll find more information on pinning certificates and public keys [in this 
 
 ## Plaintext is the enemy
 
-Be it passwords, API keys, your local database, your cache, your users' personal details, one thing remains true: plaintext is your enemy. It doesn't matter how much care and effort you put into making your application secure, your server secure, your transport secure, if someone can just plug into iTunes and retrieve your certificates and keys, or even worse: lift them off from Github. Encryption is key.
+![](http://petslady.com/sites/default/files/inline-images/cattire.jpg)
+
+Be it passwords, API keys, your local database, your cache, your users' personal details, one thing remains true: plaintext is your enemy. It doesn't matter how much care and effort you put into making your application secure, your server secure, your transport secure, if someone can just plug a phone, open iTunes and retrieve your certificates and keys, or even worse: lift them off from Github. Encryption is key.
 
 ![Not a pretty picture.](2017-04-app-security-in-swift/apikey.png)
 
 
 ## How to easily and safely encrypt/decrypt user data
 
-There're many tools for symmetric and asymmetric encryption. Most of them are built on a top of existing community-proven libraries. We can name only a few, but there're more, you know.
+There're many tools for symmetric and asymmetric encryption. Most of them are built on a top of existing community-proven libraries. We can name only a few, but there are more.
 
 - [CryptoSwift](https://github.com/krzyzanowskim/CryptoSwift)
 - [RNCrypto](https://github.com/RNCryptor/RNCryptor)
@@ -136,23 +136,24 @@ Again, a complex model made simpler with Themis, but still quite complicated. Us
 
 ## SSL is not enough. Certificate Pinning is not enough.
 
+![](http://www.funnycatsite.com/pictures/Security_Cat.jpg)
+<caption>I'm here to keep your data safe.</caption>
+
 You've been reading a lot about the topic, and you feel confident that your app is well configured. It will only accept HTTPS connections. It pinned all the certificates for the critical stuff. 
 
-Unfortunately, SSL is a fragile system. (Remember, that [story about WoSign](https://security.googleblog.com/2016/10/distrusting-wosign-and-startcom.html), that issued certificates even for not domain owners?) Do not rely on SSL encryption if your app is dealing with *sensitive data*. 
-
+Unfortunately, SSL is a fragile system. (Remember, that [story about WoSign](https://security.googleblog.com/2016/10/distrusting-wosign-and-startcom.html), that issued certificates even if they're not the domain owners?) Do not rely on SSL encryption if your app is dealing with *sensitive data*. 
 
 - [Why you should avoid SSL in your next app?](https://www.cossacklabs.com/avoid-ssl-for-your-next-app.html)
 
 Add a layer of encryption for your network connection. Encrypt data before sending, decrypt after receiving. In the end-to-end world, a server wouldn't even know what this data is.
 
-
 ## Conclusion
+
 There are a simple set of tools and concepts that can go a long way with minimal effort. While not all applications deal with bank transactions and therefore don't need the utmost security levels, most applications deal with a lot of user data, and that data should be kept just as safe.
 
 Don't just give the illusion of security. Don't give the illusion of insecurity either. 
 
 ![](https://media.giphy.com/media/3o85xH5pfwcCXZyfg4/giphy.gif)
-
 
 # Read more
 

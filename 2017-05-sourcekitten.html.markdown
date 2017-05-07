@@ -5,8 +5,8 @@ issue: may-2017
 tags:
 author: Seán Labastille
 author_twitter: flufffel
-editor: TBD
-editor_twitter: TBD
+editor: Patrick Balestra
+editor_twitter: balestrapatrick
 order: 5
 ---
 

@@ -143,16 +143,16 @@ $ sourcekitten structure --file Source/Result.swift
 
 ```json
 {
-  "key.offset":2869,
-  "key.nameoffset":2873,
-  "key.accessibility":"source.lang.swift.accessibility.public",
-  "key.typename":"String",
-  "key.length":23,
-  "key.name":"description",
-  "key.bodyoffset":2894,
-  "key.kind":"source.lang.swift.decl.var.instance",
-  "key.namelength":11,
-  "key.bodylength":141
+  "key.offset" : 2869,
+  "key.nameoffset" : 2873,
+  "key.accessibility" : "source.lang.swift.accessibility.public",
+  "key.typename" : "String",
+  "key.length" : 23,
+  "key.name" : "description",
+  "key.bodyoffset" : 2894,
+  "key.kind" : "source.lang.swift.decl.var.instance",
+  "key.namelength" : 11,
+  "key.bodylength" : 141
 },
 ```
 
@@ -172,37 +172,37 @@ $ sourcekitten doc
 
 ```json
 {
-  "key.accessibility":"source.lang.swift.accessibility.public",
-  "key.length":23,
-  "key.overrides":[
+  "key.accessibility" : "source.lang.swift.accessibility.public",
+  "key.length" : 23,
+  "key.overrides" : [
     {
-      "key.usr":"s:vPs23CustomStringConvertible11descriptionSS"
+      "key.usr" : "s:vPs23CustomStringConvertible11descriptionSS"
     }
   ],
-  "key.doc.type":"Other",
-  "key.parsed_scope.start":79,
-  "key.kind":"source.lang.swift.decl.var.instance",
-  "key.doc.full_as_xml":"<Other file=\"./Source/Result.swift\" line=\"79\" column=\"16\"><Name>description</Name><USR>s:vO9Alamofire6Result11descriptionSS</USR><Declaration>public var description: String { get }</Declaration><Abstract><Para>The textual representation used when written to an output stream, which includes whether the result was a success or failure.</Para></Abstract></Other>",
-  "key.nameoffset":2873,
-  "key.typename":"String",
-  "key.doc.column":16,
-  "key.doc.comment":"The textual representation used when written to an output stream, which includes whether the result was a\nsuccess or failure.",
-  "key.bodyoffset":2894,
-  "key.filepath":"./Source/Result.swift",
-  "key.doc.file":"./Source/Result.swift",
-  "key.annotated_decl":"<Declaration>public var description: <Type usr=\"s:SS\">String</Type> { get }</Declaration>",
-  "key.fully_annotated_decl":"<decl.var.instance><syntaxtype.keyword>public</syntaxtype.keyword> <syntaxtype.keyword>var</syntaxtype.keyword> <decl.name>description</decl.name>: <decl.var.type><ref.struct usr=\"s:SS\">String</ref.struct></decl.var.type> { <syntaxtype.keyword>get</syntaxtype.keyword> }</decl.var.instance>",
-  "key.doc.declaration":"public var description: String { get }",
-  "key.typeusr":"_TtSS",
-  "key.offset":2869,
-  "key.doc.line":79,
-  "key.doc.name":"description",
-  "key.name":"description",
-  "key.usr":"s:vO9Alamofire6Result11descriptionSS",
-  "key.parsed_declaration":"public var description: String",
-  "key.namelength":11,
-  "key.parsed_scope.end":86,
-  "key.bodylength":141
+  "key.doc.type" : "Other",
+  "key.parsed_scope.start" : 79,
+  "key.kind" : "source.lang.swift.decl.var.instance",
+  "key.doc.full_as_xml" : "<Other file=\"./Source/Result.swift\" line=\"79\" column=\"16\"><Name>description</Name><USR>s:vO9Alamofire6Result11descriptionSS</USR><Declaration>public var description: String { get }</Declaration><Abstract><Para>The textual representation used when written to an output stream, which includes whether the result was a success or failure.</Para></Abstract></Other>",
+  "key.nameoffset" : 2873,
+  "key.typename" : "String",
+  "key.doc.column" : 16,
+  "key.doc.comment" : "The textual representation used when written to an output stream, which includes whether the result was a\nsuccess or failure.",
+  "key.bodyoffset" : 2894,
+  "key.filepath" : "./Source/Result.swift",
+  "key.doc.file" : "./Source/Result.swift",
+  "key.annotated_decl" : "<Declaration>public var description: <Type usr=\"s:SS\">String</Type> { get }</Declaration>",
+  "key.fully_annotated_decl" : "<decl.var.instance><syntaxtype.keyword>public</syntaxtype.keyword> <syntaxtype.keyword>var</syntaxtype.keyword> <decl.name>description</decl.name>: <decl.var.type><ref.struct usr=\"s:SS\">String</ref.struct></decl.var.type> { <syntaxtype.keyword>get</syntaxtype.keyword> }</decl.var.instance>",
+  "key.doc.declaration" : "public var description: String { get }",
+  "key.typeusr" : "_TtSS",
+  "key.offset" : 2869,
+  "key.doc.line" : 79,
+  "key.doc.name" : "description",
+  "key.name" : "description",
+  "key.usr" : "s:vO9Alamofire6Result11descriptionSS",
+  "key.parsed_declaration" : "public var description: String",
+  "key.namelength" : 11,
+  "key.parsed_scope.end" : 86,
+  "key.bodylength" : 141
 }
 ```
 

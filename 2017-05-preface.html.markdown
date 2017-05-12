@@ -34,7 +34,7 @@ Every issue aims to have between 4 and 5 articles, for the first part it will be
 
 ### Continuation
 
-Once an issue is ready, the editors can decide to fade away and authors are kindly asked to become editors on the following release helping the new ones in writing the article for the following issue. This creates a continuation of the project and gives the opportunity to share what the editor, previously author, learned during the process. If an editor wants to help on the following release, he's more than welcome, the only restriction is that an author should avoid writing an article in two consecutive issues.
+Once an issue is ready, the editors can decide to fade away and authors are kindly asked to become editors on the following release helping the new ones in writing the article for the following issue. This creates a continuation of the project and gives the opportunity to share what the editor, previously author, learned during the process. If an editor wants to help on the following release, they're more than welcome, the only restriction is that an author should avoid writing an article in two consecutive issues.
 
 ![Preface](2017-05-preface/flow.png)
 
